@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+$background-image-url: 'https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg';
+$animation-name: slidein;
+$animation-duration: 100s;
+$animation-timing-function: ease;
+$animation-fill-mode: forwards;
+$animation-iteration-count: infinite;
+$animation-direction: alternate;
+
+$background-size-start: 3000px;
+$background-size-end: 2750px;
+$background-position-end: -100px 0px;
+
+$hover-background-color: rgba(250, 235, 215, 0.5);
+$hover-border-color: black;
+$hover-text-color: black;
+
+body {
+  background-image: url($background-image-url);
+  background-size: cover;
+  animation: $animation-name $animation-duration $animation-timing-function $animation-fill-mode $animation-iteration-count $animation-direction;
+
+  @keyframes #{$animation-name} {
+    from {
+      background-position: top;
+      background-size: $background-size-start;
+    }
+
+    to {
+      background-position: $background-position-end;
+      background-size: $background-size-end;
+    }
+  }
+}
+
+.app {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countLabel {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.countButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.countBtn {
+  font-size: 24px;
+  background: transparent;
+  padding: 11px 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  transition: background-color 0.3s $animation-timing-function;
+
+  &:hover {
+    background-color: $hover-background-color;
+    color: $hover-text-color;
+    border: 1px solid $hover-border-color;
+  }
+}
